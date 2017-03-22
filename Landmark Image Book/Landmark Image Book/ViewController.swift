@@ -12,25 +12,24 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    //Gloabele Hilfs Arrays
     var landMarkNamesArray = [String]()
     var landMarkImageArray = [UIImage]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //TableView Setup
-        
         tableView.dataSource = self
         tableView.delegate = self
         
-        //Example Array creation
+        //Example Array
         landMarkNamesArray.append("Colloseum")
         landMarkNamesArray.append("Chinese Wall")
         landMarkNamesArray.append("Kreml")
         landMarkNamesArray.append("Stoneheadge")
         landMarkNamesArray.append("Taj Mahal")
-        
         
         landMarkImageArray.append(UIImage(named: "colloseum.jpg")!)
         landMarkImageArray.append(UIImage(named: "chinesewall.jpg")!)
@@ -42,10 +41,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
+    
     //Anhand der Einträge im Array werden die Zeilen aufgebaut
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return landMarkNamesArray.count
     }
+   
+    
+    //Es soll in der Zeile der Name des Arrays stehen
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = landMarkNamesArray[indexPath.row]
+        return cell
+    }
+    
     
     //Durch die editing Style Funktion kann man in einer Zeile ein Element löschen
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -56,11 +65,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    //Es soll in der Zeile der Name des Arrays stehen
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = landMarkNamesArray[indexPath.row]
-        return cell
+    //---------------------------------------------------
+    // -- Segue Funktionen
+    //---------------------------------------------------
+    
+    //Globale Variablen zum Übertragen in den ImageViewScreen
+    var chossenLandmarkName = ""
+    var choosenLandmarkImage = UIImage()
+    
+    //Bei einer Auswahl Segue durchführen
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.chossenLandmarkName = landMarkNamesArray[indexPath.row]
+        self.choosenLandmarkImage = landMarkImageArray[indexPath.row]
+        performSegue(withIdentifier: "toImageVCSegue", sender: nil)
     }
-}
+    
+    //Segue ausführen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toImageVCSegue"{
+            let destinationVC = segue.destination as! ImageViewController
+            destinationVC.selectedLandmarkName = chossenLandmarkName
+            destinationVC.selectedLandmarkImage = choosenLandmarkImage
+        }
+    }
+    
+   }
 

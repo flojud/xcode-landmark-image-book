@@ -17,6 +17,7 @@
 		871C1B941E82944F007558C7 /* kreml.png in Resources */ = {isa = PBXBuildFile; fileRef = 871C1B8F1E82944F007558C7 /* kreml.png */; };
 		871C1B951E82944F007558C7 /* stoneheadge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871C1B901E82944F007558C7 /* stoneheadge.jpg */; };
 		871C1B961E82944F007558C7 /* tajmahal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 871C1B911E82944F007558C7 /* tajmahal.jpg */; };
+		871C1B981E82BEF6007558C7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C1B971E82BEF6007558C7 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		871C1B8F1E82944F007558C7 /* kreml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kreml.png; sourceTree = "<group>"; };
 		871C1B901E82944F007558C7 /* stoneheadge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stoneheadge.jpg; sourceTree = "<group>"; };
 		871C1B911E82944F007558C7 /* tajmahal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tajmahal.jpg; sourceTree = "<group>"; };
+		871C1B971E82BEF6007558C7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				871C1B7B1E828FDE007558C7 /* AppDelegate.swift */,
 				871C1B7D1E828FDE007558C7 /* ViewController.swift */,
 				871C1B7F1E828FDE007558C7 /* Main.storyboard */,
+				871C1B971E82BEF6007558C7 /* ImageViewController.swift */,
 				871C1B8D1E82944F007558C7 /* chinesewall.jpg */,
 				871C1B8E1E82944F007558C7 /* colloseum.jpg */,
 				871C1B8F1E82944F007558C7 /* kreml.png */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871C1B7E1E828FDE007558C7 /* ViewController.swift in Sources */,
+				871C1B981E82BEF6007558C7 /* ImageViewController.swift in Sources */,
 				871C1B7C1E828FDE007558C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
